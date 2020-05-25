@@ -1,0 +1,52 @@
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 100vh;
+  align-items: center;
+  padding: 20px;
+
+  .sidebar-logo {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    img {
+      height: 3.2rem;
+      filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+    }
+  }
+
+  .sidebar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    opacity: 0.4;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    img {
+      height: 2.3rem;
+    }
+    .link-text {
+      margin-top: 0.3rem;
+      font-size: 14px;
+    }
+
+    &.active {
+      background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+      opacity: 1;
+      border-radius: 6px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+
+      img {
+        filter: invert(1);
+      }
+
+      .link-text {
+        color: white;
+      }
+    }
+  }
+}

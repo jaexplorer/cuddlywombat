@@ -1,0 +1,817 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #f4f6fa;
+}
+
+.main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: white;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.sidebar-container .sidebar-logo {
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.sidebar-container .sidebar-logo img {
+  height: 3.2rem;
+  -webkit-filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+          filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+}
+
+.sidebar-container .sidebar-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70px;
+  height: 70px;
+  opacity: 0.4;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.sidebar-container .sidebar-link img {
+  height: 2.3rem;
+}
+
+.sidebar-container .sidebar-link .link-text {
+  margin-top: 0.3rem;
+  font-size: 14px;
+}
+
+.sidebar-container .sidebar-link.active {
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  opacity: 1;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-container .sidebar-link.active img {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.sidebar-container .sidebar-link.active .link-text {
+  color: white;
+}
+
+.subbar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  position: relative;
+  margin-top: 30px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.subbar-container .subbar-logo {
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.subbar-container .subbar-logo img {
+  height: 3.2rem;
+}
+
+.subbar-container .subbar-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70px;
+  height: 70px;
+  opacity: 0.5;
+  margin-bottom: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.subbar-container .subbar-link img {
+  height: 2.3rem;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.subbar-container .subbar-link .link-text {
+  margin-top: 0.3rem;
+  font-size: 14px;
+}
+
+.subbar-container .subbar-link:last-child {
+  margin-bottom: 0;
+}
+
+.subbar-container .subbar-link.active {
+  opacity: 1;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header-container {
+  width: calc(100% - 50px);
+  background: white;
+  height: 100px;
+  position: relative;
+  margin: 25px;
+  margin-top: 30px;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 28px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-container .header-title-container {
+  opacity: 0.7;
+}
+
+.header-container .header-title-container .header-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header-container .header-title-container .header-subtitle {
+  opacity: 0.8;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.header-container .table-container {
+  opacity: 0.7;
+  position: relative;
+  margin-left: 160px;
+}
+
+.header-container .table-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80px;
+  margin: auto;
+  height: 30px;
+  width: 1px;
+  opacity: 0.2;
+  background: black;
+}
+
+.header-container .table-container .table-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header-container .table-container .table-subtitle {
+  opacity: 0.8;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.header-container img {
+  opacity: 0.7;
+  height: 2rem;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.subheader-container {
+  width: calc(100% - 50px);
+  height: 80px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subheader-container .routes-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.subheader-container .routes-container img {
+  height: 1rem;
+  opacity: 0.5;
+  margin-right: 30px;
+}
+
+.subheader-container .routes-container .route-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 30px;
+}
+
+.subheader-container .routes-container .route-wrapper .route-title {
+  opacity: 0.4;
+  font-size: 12px;
+}
+
+.subheader-container .routes-container .route-wrapper .route-text {
+  margin-top: 7px;
+  opacity: 0.7;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.subheader-container .sub-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.subheader-container .sub-links .link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px;
+  border-radius: 6px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.subheader-container .sub-links .link-container img {
+  height: 1.5rem;
+  margin-right: 10px;
+}
+
+.subheader-container .sub-links .link-container .link-text {
+  font-size: 12px;
+}
+
+.subheader-container .sub-links .link-container.active {
+  opacity: 1;
+  background: white;
+  color: #63c5eb;
+}
+
+.subheader-container .sub-links .link-container.active img {
+  -webkit-filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+          filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+}
+
+.orderview-container {
+  width: calc(100% - 50px);
+  height: 100%;
+  margin-left: 25px;
+  margin-right: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.orderview-container .items-container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  width: 100%;
+  height: 100%;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+}
+
+.orderview-container .items-container .order-item-container {
+  background: white;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+}
+
+.orderview-container .items-container .order-item-container .price-container {
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+  position: relative;
+  margin-top: 14px;
+  margin-left: 14px;
+}
+
+.orderview-container .items-container .order-item-container .name-container {
+  background: white;
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 6px;
+  padding: 10px;
+  position: relative;
+  margin-top: 14px;
+  margin-left: 14px;
+}
+
+.orderview-container .items-container .order-item-container > img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 7rem;
+  opacity: 0.2;
+}
+
+.orderview-container .items-container .order-item-container.active {
+  -webkit-box-shadow: inset 0px 0px 0px 2px #66a6ff;
+          box-shadow: inset 0px 0px 0px 2px #66a6ff;
+}
+
+.orderview-container .items-container .order-item-container.active .ticked {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+}
+
+.orderview-container .items-container .order-item-container.active .ticked img {
+  opacity: 1;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  height: 2rem;
+}
+
+.orderview-container .order-panel {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.orderview-container .order-panel .header-container {
+  margin: 0;
+  width: 100%;
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.orderview-container .order-panel .header-container .header-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.orderview-container .order-panel .header-container .header-text {
+  margin-top: 5px;
+  opacity: 0.6;
+}
+
+.orderview-container .order-panel .order-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.orderview-container .order-panel .order-container .order-list-container {
+  overflow: scroll;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-height: 450px;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  padding: 28px;
+  border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item:last-child {
+  border-bottom: none;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-name {
+  position: relative;
+  font-weight: bold;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-price {
+  margin-left: 40px;
+  position: relative;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-price::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  margin: auto;
+  height: 20px;
+  width: 1px;
+  opacity: 0.2;
+  background: black;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-quantity {
+  margin-left: 40px;
+  position: relative;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-quantity::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  margin: auto;
+  height: 20px;
+  width: 1px;
+  opacity: 0.2;
+  background: black;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-button {
+  margin-left: auto;
+}
+
+.orderview-container .order-panel .order-container .order-list-container .order-item .order-button img {
+  height: 2rem;
+  -webkit-filter: invert(63%) sepia(8%) saturate(3386%) hue-rotate(94deg) brightness(94%) contrast(76%);
+          filter: invert(63%) sepia(8%) saturate(3386%) hue-rotate(94deg) brightness(94%) contrast(76%);
+}
+
+.orderview-container .order-panel .order-container .order-white-container {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: white;
+  height: 100%;
+  max-height: 250px;
+  margin-top: auto;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .subtotal-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .subtotal-container .title {
+  font-weight: bold;
+  opacity: 0.7;
+  font-size: 18px;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .subtotal-container .value {
+  opacity: 0.6;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .total-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .total-container .title {
+  font-weight: bold;
+  opacity: 0.7;
+  font-size: 18px;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .total-container .value {
+  font-weight: bold;
+  color: #63c5eb;
+  font-size: 24px;
+}
+
+.orderview-container .order-panel .order-container .order-white-container .action-button {
+  padding: 14px;
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  border-radius: 6px;
+  font-size: 18px;
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.orderview-container .order-panel .reservations-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container {
+  overflow: scroll;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-height: 450px;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  padding: 28px;
+  border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container:last-child {
+  border-bottom: none;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .select {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+  cursor: pointer;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .select.active {
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-number {
+  margin-left: 30px;
+  opacity: 0.7;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-name {
+  margin-left: 40px;
+  position: relative;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-name::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  margin: auto;
+  height: 20px;
+  width: 1px;
+  opacity: 0.2;
+  background: black;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-people {
+  margin-left: 40px;
+  opacity: 0.4;
+  position: relative;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-people::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  margin: auto;
+  height: 20px;
+  width: 1px;
+  opacity: 0.4;
+  background: black;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-date {
+  margin-left: 40px;
+  opacity: 0.4;
+  position: relative;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-date::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  margin: auto;
+  height: 20px;
+  width: 1px;
+  opacity: 0.4;
+  background: black;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-button {
+  margin-left: auto;
+}
+
+.orderview-container .order-panel .reservations-container .reservation-list-container .reservation-container .reservation-button img {
+  height: 2rem;
+  -webkit-filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+          filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+}
+
+.orderview-container .order-panel .reservations-container .create-reservation-container {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: white;
+  height: 100%;
+  max-height: 250px;
+  margin-top: auto;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.orderview-container .order-panel .reservations-container .create-reservation-container .form-container {
+  padding: 28px;
+}
+/*# sourceMappingURL=main.css.map */

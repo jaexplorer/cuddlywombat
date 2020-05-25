@@ -1,0 +1,141 @@
+.header-container {
+  width: calc(100% - 50px);
+  background: white;
+  height: 100px;
+  position: relative;
+  margin: 25px;
+  margin-top: 30px;
+  border-radius: 6px;
+  display: flex;
+  padding: 28px;
+  align-items: center;
+
+  .header-title-container {
+    opacity: 0.7;
+
+    .header-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .header-subtitle {
+      opacity: 0.8;
+      margin-top: 3px;
+      font-size: 12px;
+    }
+  }
+
+  .table-container {
+    opacity: 0.7;
+    position: relative;
+    margin-left: 160px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -80px;
+      margin: auto;
+      height: 30px;
+      width: 1px;
+      opacity: 0.2;
+      background: black;
+    }
+
+    .table-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .table-subtitle {
+      opacity: 0.8;
+      margin-top: 3px;
+      font-size: 12px;
+    }
+  }
+
+  img {
+    opacity: 0.7;
+    height: 2rem;
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
+
+.subheader-container {
+  width: calc(100% - 50px);
+  height: 80px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  display: flex;
+
+  .routes-container {
+    display: flex;
+    align-items: center;
+    flex: 2;
+
+    img {
+      height: 1rem;
+      opacity: 0.5;
+      margin-right: 30px;
+    }
+
+    .route-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 30px;
+
+      .route-title {
+        opacity: 0.4;
+        font-size: 12px;
+      }
+
+      .route-text {
+        margin-top: 7px;
+        opacity: 0.7;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .sub-links {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+
+    .link-container {
+      display: flex;
+      padding: 14px;
+      border-radius: 6px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.5;
+
+      img {
+        height: 1.5rem;
+        margin-right: 10px;
+      }
+
+      .link-text {
+        font-size: 12px;
+      }
+
+      &.active {
+        opacity: 1;
+
+        background: white;
+        color: #63c5eb;
+
+        img {
+          filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+        }
+      }
+    }
+  }
+}

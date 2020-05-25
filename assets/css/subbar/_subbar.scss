@@ -1,0 +1,52 @@
+.subbar-container {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+  height: max-content;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  margin-top: 30px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+
+  .subbar-logo {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    img {
+      height: 3.2rem;
+    }
+  }
+
+  .subbar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    opacity: 0.5;
+    margin-bottom: 30px;
+    cursor: pointer;
+    color: white;
+
+    img {
+      height: 2.3rem;
+      filter: invert(1);
+    }
+    .link-text {
+      margin-top: 0.3rem;
+      font-size: 14px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.active {
+      opacity: 1;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

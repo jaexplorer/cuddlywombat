@@ -1,0 +1,368 @@
+.orderview-container {
+  width: calc(100% - 50px);
+  height: 100%;
+  margin-left: 25px;
+  margin-right: 25px;
+  display: flex;
+
+  .items-container {
+    display: grid;
+    flex: 2;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+
+    .order-item-container {
+      background: white;
+      border-radius: 6px;
+      position: relative;
+      cursor: pointer;
+
+      .price-container {
+        background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+        background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+        width: max-content;
+        border-radius: 6px;
+        padding: 10px;
+        color: white;
+        position: relative;
+        margin-top: 14px;
+        margin-left: 14px;
+      }
+
+      .name-container {
+        background: white;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+        width: max-content;
+        border-radius: 6px;
+        padding: 10px;
+        position: relative;
+        margin-top: 14px;
+        margin-left: 14px;
+      }
+
+      & > img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 7rem;
+        opacity: 0.2;
+      }
+
+      &.active {
+        // border: #287d66 2px solid;
+        box-shadow: inset 0px 0px 0px 2px #66a6ff;
+
+        .ticked {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          bottom: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top-left-radius: 6px;
+          border-bottom-right-radius: 6px;
+
+          background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+
+          img {
+            opacity: 1;
+            filter: invert(1);
+            height: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .order-panel {
+    flex: 1;
+
+    .header-container {
+      margin: 0;
+      width: 100%;
+      background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: white;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      .header-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .header-text {
+        margin-top: 5px;
+        opacity: 0.6;
+      }
+    }
+
+    .order-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .order-list-container {
+        overflow: scroll;
+        flex: 1;
+        max-height: 450px;
+        .order-item {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          padding: 28px;
+          border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .order-name {
+            position: relative;
+            font-weight: bold;
+          }
+
+          .order-price {
+            margin-left: 40px;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: -20px;
+              margin: auto;
+              height: 20px;
+              width: 1px;
+              opacity: 0.2;
+              background: black;
+            }
+          }
+
+          .order-quantity {
+            margin-left: 40px;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: -20px;
+              margin: auto;
+              height: 20px;
+              width: 1px;
+              opacity: 0.2;
+              background: black;
+            }
+          }
+
+          .order-button {
+            margin-left: auto;
+            img {
+              height: 2rem;
+
+              filter: invert(63%) sepia(8%) saturate(3386%) hue-rotate(94deg) brightness(94%)
+                contrast(76%);
+            }
+          }
+        }
+      }
+
+      .order-white-container {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background: white;
+        height: 100%;
+        max-height: 250px;
+        margin-top: auto;
+        width: 100%;
+        flex: 1;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+
+        .subtotal-container {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          .title {
+            font-weight: bold;
+            opacity: 0.7;
+            font-size: 18px;
+          }
+
+          .value {
+            opacity: 0.6;
+            font-weight: bold;
+            font-size: 24px;
+          }
+        }
+
+        .total-container {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          .title {
+            font-weight: bold;
+            opacity: 0.7;
+            font-size: 18px;
+          }
+
+          .value {
+            font-weight: bold;
+            color: #63c5eb;
+            font-size: 24px;
+          }
+        }
+
+        .action-button {
+          padding: 14px;
+          background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          border-radius: 6px;
+          font-size: 18px;
+          margin-top: auto;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .reservations-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .reservation-list-container {
+        overflow: scroll;
+        flex: 1;
+        max-height: 450px;
+        .reservation-container {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          padding: 28px;
+          border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .select {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            border: 1px rgba(0, 0, 0, 0.1) solid;
+            cursor: pointer;
+
+            &.active {
+              background-image: linear-gradient(120deg, #6fecf5 0%, #66a6ff 100%);
+            }
+          }
+
+          .reservation-number {
+            margin-left: 30px;
+            opacity: 0.7;
+            font-weight: bold;
+            font-size: 18px;
+          }
+          .reservation-name {
+            margin-left: 40px;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: -20px;
+              margin: auto;
+              height: 20px;
+              width: 1px;
+              opacity: 0.2;
+              background: black;
+            }
+          }
+          .reservation-people {
+            margin-left: 40px;
+            opacity: 0.4;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: -20px;
+              margin: auto;
+              height: 20px;
+              width: 1px;
+              opacity: 0.4;
+              background: black;
+            }
+          }
+
+          .reservation-date {
+            margin-left: 40px;
+            opacity: 0.4;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: -20px;
+              margin: auto;
+              height: 20px;
+              width: 1px;
+              opacity: 0.4;
+              background: black;
+            }
+          }
+
+          .reservation-button {
+            margin-left: auto;
+            img {
+              height: 2rem;
+
+              filter: invert(67%) sepia(98%) saturate(388%) hue-rotate(166deg) brightness(96%) contrast(92%);
+            }
+          }
+        }
+      }
+
+      .create-reservation-container {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background: white;
+        height: 100%;
+        max-height: 250px;
+        margin-top: auto;
+        width: 100%;
+        flex: 1;
+
+        .form-container {
+          padding: 28px;
+        }
+      }
+    }
+  }
+}
