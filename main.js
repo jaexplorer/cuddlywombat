@@ -1,7 +1,16 @@
 const path = require('path');
 const url = require('url');
 const { app, BrowserWindow, ipcMain, Menu } = require('electron');
-const Log = require('./models/Log');
+const Customer = require('./models/Customer');
+const Item = require('./models/Item');
+const MenuModel = require('./models/Menu');
+const Order = require('./models/Order');
+const Owner = require('./models/Owner');
+const Permission = require('./models/Permission');
+const Reservation = require('./models/Reservation');
+const Staff = require('./models/Staff');
+const Table = require('./models/Table');
+
 const connectDB = require('./config/db');
 
 // Connect to database
@@ -107,39 +116,278 @@ const menu = [
     : []),
 ];
 
-ipcMain.on('logs:load', sendLogs);
+// --- Customers --- //
+ipcMain.on('customers:load', sendCustomers);
 
-ipcMain.on('logs:add', async (e, item) => {
+ipcMain.on('customers:add', async (e, item) => {
   try {
-    await Log.create(item);
-    sendLogs();
+    await Customer.create(item);
+    sendCustomers();
   } catch (error) {
     console.log(error);
   }
 });
 
-ipcMain.on('logs:delete', async (e, _id) => {
+ipcMain.on('customers:delete', async (e, _id) => {
   try {
-    await Log.deleteOne({ _id });
-    sendLogs();
+    await Customer.deleteOne({ _id });
+    sendCustomers();
   } catch (error) {
     console.log(error);
   }
 });
 
-async function sendLogs() {
+async function sendCustomers() {
   try {
-    const logs = await Log.find().sort({ created: 1 });
-    mainWindow.webContents.send('logs:get', JSON.stringify(logs));
+    const customers = await Customer.find().sort({ created: 1 });
+    mainWindow.webContents.send('customers:get', JSON.stringify(customers));
   } catch (error) {
     console.log(error);
   }
 }
 
-async function clearLogs() {
+async function clearCustomers() {
   try {
-    await Log.deleteMany({});
-    mainWindow.webContents.send('logs:clear');
+    await Customer.deleteMany({});
+    mainWindow.webContents.send('customers:clear');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Items --- //
+ipcMain.on('items:load', sendItems);
+
+ipcMain.on('items:add', async (e, item) => {
+  try {
+    await Item.create(item);
+    sendItems();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+ipcMain.on('items:delete', async (e, _id) => {
+  try {
+    await Item.deleteOne({ _id });
+    sendItems();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function sendItems() {
+  try {
+    const items = await Item.find().sort({ created: 1 });
+    mainWindow.webContents.send('items:get', JSON.stringify(items));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function clearItems() {
+  try {
+    await Item.deleteMany({});
+    mainWindow.webContents.send('items:clear');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Menu --- //
+ipcMain.on('menus:load', sendMenus);
+
+ipcMain.on('menus:add', async (e, item) => {
+  try {
+    await Menu.create(item);
+    sendMenus();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+ipcMain.on('menus:delete', async (e, _id) => {
+  try {
+    await Menu.deleteOne({ _id });
+    sendMenus();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function sendMenus() {
+  try {
+    const menus = await Menu.find().sort({ created: 1 });
+    mainWindow.webContents.send('menus:get', JSON.stringify(menus));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function clearMenus() {
+  try {
+    await Menu.deleteMany({});
+    mainWindow.webContents.send('menus:clear');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Orders --- //
+ipcMain.on('orders:load', sendOrders);
+
+ipcMain.on('orders:add', async (e, item) => {
+  try {
+    await Order.create(item);
+    sendOrders();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+ipcMain.on('orders:delete', async (e, _id) => {
+  try {
+    await Order.deleteOne({ _id });
+    sendOrders();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function sendOrders() {
+  try {
+    const orders = await Order.find().sort({ created: 1 });
+    mainWindow.webContents.send('orders:get', JSON.stringify(orders));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function clearOrders() {
+  try {
+    await Order.deleteMany({});
+    mainWindow.webContents.send('orders:clear');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Owner --- //
+ipcMain.on('owner:load', sendOwner);
+
+async function sendOwner(_id) {
+  try {
+    const owner = await Owner.findOne({ _id }).sort({ created: 1 });
+    mainWindow.webContents.send('owner:get', JSON.stringify(owner));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Staff --- //
+ipcMain.on('staff:load', sendStaff);
+
+async function sendStaff(_id) {
+  try {
+    const staff = await Staff.findOne({ _id }).sort({ created: 1 });
+    mainWindow.webContents.send('staff:get', JSON.stringify(staff));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Permission --- //
+ipcMain.on('permission:add', async (e, permission) => {
+  try {
+    await Permission.create(permission);
+    sendPermission();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function sendPermission() {
+  try {
+    const permission = await Permission.find().sort({ created: 1 });
+    mainWindow.webContents.send('permission:get', JSON.stringify(permission));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Reservation --- //
+ipcMain.on('reservations:load', sendReservations);
+
+ipcMain.on('reservations:add', async (e, table) => {
+  try {
+    await Reservation.create(table);
+    sendReservations();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+ipcMain.on('reservations:delete', async (e, _id) => {
+  try {
+    await Reservation.deleteOne({ _id });
+    sendReservations();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function sendReservations() {
+  try {
+    const reservations = await Reservation.find().sort({ created: 1 });
+    mainWindow.webContents.send('reservations:get', JSON.stringify(reservations));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function clearReservations() {
+  try {
+    await Reservation.deleteMany({});
+    mainWindow.webContents.send('reservations:clear');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// --- Table --- //
+ipcMain.on('tables:load', sendTables);
+
+ipcMain.on('tables:add', async (e, table) => {
+  try {
+    await Table.create(table);
+    sendTables();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+ipcMain.on('tables:delete', async (e, _id) => {
+  try {
+    await Table.deleteOne({ _id });
+    sendTables();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function sendTables() {
+  try {
+    const tables = await Table.find().sort({ created: 1 });
+    mainWindow.webContents.send('tables:get', JSON.stringify(tables));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function clearTables() {
+  try {
+    await Table.deleteMany({});
+    mainWindow.webContents.send('tables:clear');
   } catch (error) {
     console.log(error);
   }
